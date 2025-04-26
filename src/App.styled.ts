@@ -44,7 +44,7 @@ export const InnerMain = styled.div`
   ${media.xxl} {
     flex-direction: row;
     justify-content: flex-end;
-    gap: 210px;
+    // gap: 210px;
 
     background-image: url(${aura}), url(${freespin}), url(${zeus}),
       url(${ellipse525}), url(${gold1}), url(${gold2}), url(${ellipse526});
@@ -55,9 +55,9 @@ export const InnerMain = styled.div`
 
   ${media.xl} {
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 514px;
+    gap: 485px;
 
     background-image: url(${freespinMini}), url(${zeusMini}), url(${auraMini});
     background-position: center 103px, center 275px, 0 330px;
@@ -71,6 +71,9 @@ export const InnerMain = styled.div`
       content: "";
       background-image: url(${gold2mini});
     }
+  }
+  ${media.lg} {
+    gap: 485px;
   }
 `;
 
@@ -87,7 +90,7 @@ export const LogoImage = styled.img`
 
   ${media.xl} {
     max-width: 172px;
-    margin-top: 30px;
+    margin-top: 60px;
   }
 `;
 
@@ -109,8 +112,9 @@ export const RegisterContainer = styled.div`
     width: 100%;
     border-radius: 24px 24px 0 0;
     background-color: #0f0219;
-    padding-top: 60px;
     padding-left: 0;
+    padding-top: 40px;
+    padding-bottom: 80px;
   }
 `;
 
