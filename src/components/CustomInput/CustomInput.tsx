@@ -20,7 +20,7 @@ interface InputProps {
   error?: string;
 }
 
-const phoneRegex = /^\+375(25|29|33)\d{7}$/;
+const phoneRegex = /^\+375(25|29|33|44)\d{7}$/;
 
 // Formatting for display: +375 29 1234567
 function formatPhone(value: string) {
@@ -104,7 +104,7 @@ const Input: React.FC<InputProps> = ({
     !phoneRegex.test(value)
   ) {
     internalError =
-      "Телефон должен быть в формате +375 25 1234567, +375 29 1234567 или +375 33 1234567";
+      "Телефон должен быть в формате +375 25 1234567, +375 29 1234567, +375 33 1234567 или +375 44 1234567";
   }
   if (type === "password" && touched && value.length > 0 && value.length < 6) {
     internalError = "Пароль должен содержать минимум 6 символов";
