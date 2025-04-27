@@ -92,6 +92,7 @@ export const LogoImage = styled.img`
   max-width: 332px;
   height: auto;
   margin-top: 80px;
+  margin-right: 210px;
 
   ${media.xl} {
     max-width: 172px;
