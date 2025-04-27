@@ -29,7 +29,7 @@ import CustomButton from "@/components/CustomButton/CustomButton";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 
 // Regex for Belarusian phone number: +375 25/29/33 and 7 digits
-const phoneRegex = /^\+375(25|29|33)\d{7}$/;
+const phoneRegex = /^\+375(25|29|33|44)\d{7}$/;
 
 function isFetchBaseQueryError(error: unknown): error is FetchBaseQueryError {
   return typeof error === "object" && error !== null && "status" in error;
