@@ -192,6 +192,10 @@ export const BigBannerWrapper = styled.div`
   float: right;
   margin-top: 270px;
   margin-right: -370px;
+
+  ${media.xl} {
+    display: none;
+  }
 `;
 
 export const BigBannerFirstPart = styled.div`
