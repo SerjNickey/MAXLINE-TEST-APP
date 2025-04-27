@@ -92,11 +92,15 @@ export const LogoImage = styled.img`
   max-width: 332px;
   height: auto;
   margin-top: 80px;
-  margin-right: 210px;
+
+  ${media.xxl} {
+    margin-right: 210px;
+  }
 
   ${media.xl} {
     max-width: 172px;
     margin-top: 60px;
+    margin-right: auto;
   }
 `;
 
@@ -192,7 +196,8 @@ export const BigBannerWrapper = styled.div`
   position: relative;
   float: right;
   margin-top: 270px;
-  margin-right: -370px;
+  margin-right: -570px;
+  float: right;
 
   ${media.xl} {
     display: none;
