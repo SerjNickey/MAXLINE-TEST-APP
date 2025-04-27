@@ -1,8 +1,7 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import castle from "@/assets/castle.png";
 import aura from "@/assets/aura.png";
 import auraMini from "@/assets/aura_mini.png";
-import freespin from "@/assets/freespin.png";
 import freespinMini from "@/assets/freespin_mini.png";
 import zeus from "@/assets/zeus.png";
 import zeusMini from "@/assets/zeus_mini.png";
@@ -11,6 +10,11 @@ import gold1 from "@/assets/gold_1.png";
 import gold2 from "@/assets/gold_2.png";
 import gold2mini from "@/assets/gold_2_mini.png";
 import ellipse526 from "@/assets/ellipse_526.png";
+import flame from "@/assets/flame.gif";
+import rectangle from "@/assets/rectangle.png";
+import freespins from "@/assets/freespins.png";
+import registration from "@/assets/registration.png";
+import twoHun from "@/assets/200.png";
 import { media } from "./styles/breakpoints";
 
 export const MainContainer = styled.div`
@@ -44,13 +48,14 @@ export const InnerMain = styled.div`
   ${media.xxl} {
     flex-direction: row;
     justify-content: flex-end;
-    // gap: 210px;
 
-    background-image: url(${aura}), url(${freespin}), url(${zeus}),
-      url(${ellipse525}), url(${gold1}), url(${gold2}), url(${ellipse526});
+    background-image: url(${aura}), url(${zeus}), url(${ellipse525}),
+      url(${gold1}), url(${gold2}), url(${ellipse526});
 
-    background-position: 0px 320px, 560px 290px, 50px 5px, 0 328px, 907px 818px,
-      1132px 22px, 944px 0;
+    background-position: 0px 320px, 50px 5px, 0 328px, 907px 818px, 1132px 22px,
+      944px 0;
+
+    background-size: auto, auto, auto, auto, auto, auto;
   }
 
   ${media.xl} {
@@ -105,7 +110,6 @@ export const RegisterContainer = styled.div`
     width: 580px;
     background-color: rgba(0, 0, 0, 0.7);
     padding-top: 360px;
-    padding-left: 40px;
   }
 
   ${media.xl} {
@@ -179,4 +183,52 @@ export const ResponseErrorBlock = styled.div`
   ${media.xl} {
     max-width: 280px;
   }
+`;
+
+export const BigBannerWrapper = styled.div`
+  width: 820px;
+  height: 500px;
+  position: relative;
+  float: right;
+  margin-top: 270px;
+  margin-right: -370px;
+`;
+
+export const BigBannerFirstPart = styled.div`
+  width: 820px;
+  height: 500px;
+  background-image: url(${freespins}), url(${flame}), url(${rectangle}),
+    url(${registration});
+  background-size: 528px 56px, 814px 456px, 660px, 466px;
+  background-position: center 332px, center, center 100px, center 420px;
+  background-repeat: no-repeat;
+  position: absolute;
+`;
+export const BigBannerSecondPart = styled.div`
+  width: 820px;
+  height: 500px;
+  background-image: url(${flame});
+  background-size: 814px 456px;
+  background-position: center;
+  position: absolute;
+  transform: scaleX(-1);
+`;
+
+const thoHunScale = keyframes`
+  0%   { background-size: auto 235px; }
+  50%  { background-size: auto 220px; }
+  100% { background-size: auto 235px; }
+`;
+
+export const BigBannerThirdPart = styled.div`
+  width: 600px;
+  height: 258px;
+  background-image: url(${twoHun});
+  background-size: auto 235px;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 110px;
+  top: 50px;
+  animation: ${thoHunScale} 1.2s infinite ease-in-out;
 `;

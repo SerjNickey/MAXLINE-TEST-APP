@@ -9,6 +9,10 @@ import {
 import { useRegisterMutation } from "@/store/registrationApi";
 import Logo from "@/assets/logo.png";
 import {
+  BigBannerWrapper,
+  BigBannerFirstPart,
+  BigBannerSecondPart,
+  BigBannerThirdPart,
   MainContainer,
   InnerMain,
   LogoContainer,
@@ -62,6 +66,12 @@ function App() {
   return (
     <MainContainer>
       <InnerMain>
+        <BigBannerWrapper>
+          <BigBannerFirstPart />
+          <BigBannerSecondPart />
+          <BigBannerThirdPart />
+        </BigBannerWrapper>
+
         <LogoContainer>
           <LogoImage src={Logo} alt="Logo" />
         </LogoContainer>
