@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/store";
 import {
@@ -7,7 +8,6 @@ import {
   setSecondChecked,
 } from "@/store/registrationSlice";
 import { useRegisterMutation } from "@/store/registrationApi";
-import Logo from "@/assets/logo.png";
 import {
   BigBannerWrapper,
   BigBannerFirstPart,
@@ -22,11 +22,49 @@ import {
   TermsWrapper,
   TermsBlock,
   ResponseErrorBlock,
+  Loader,
 } from "./App.styled";
 import Input from "@/components/CustomInput/CustomInput";
 import CustomCheckbox from "@/components/CustomCheckbox/CustomCheckbox";
 import CustomButton from "@/components/CustomButton/CustomButton";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import Logo from "@/assets/logo.png";
+import castle from "@/assets/castle.png";
+import aura from "@/assets/aura.png";
+import auraMini from "@/assets/aura_mini.png";
+import freespinMini from "@/assets/freespin_mini.png";
+import zeus from "@/assets/zeus.png";
+import zeusMini from "@/assets/zeus_mini.png";
+import ellipse525 from "@/assets/ellipse_525.png";
+import gold1 from "@/assets/gold_1.png";
+import gold2 from "@/assets/gold_2.png";
+import gold2mini from "@/assets/gold_2_mini.png";
+import ellipse526 from "@/assets/ellipse_526.png";
+import flame from "@/assets/flame.gif";
+import rectangle from "@/assets/rectangle.png";
+import freespins from "@/assets/freespins.png";
+import registration from "@/assets/registration.png";
+import twoHun from "@/assets/200.png";
+
+const bgImages = [
+  Logo,
+  castle,
+  aura,
+  auraMini,
+  freespinMini,
+  zeus,
+  zeusMini,
+  ellipse525,
+  gold1,
+  gold2,
+  gold2mini,
+  ellipse526,
+  flame,
+  rectangle,
+  freespins,
+  registration,
+  twoHun,
+];
 
 // Regex for Belarusian phone number: +375 25/29/33 and 7 digits
 const phoneRegex = /^\+375(25|29|33|44)\d{7}$/;
@@ -48,6 +86,36 @@ function App() {
 
   const [register, { isLoading, isSuccess, isError, error }] =
     useRegisterMutation();
+
+  const [loadedCount, setLoadedCount] = useState(0);
+
+  useEffect(() => {
+    const loadImages = async () => {
+      const promises = bgImages.map((src) => {
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.src = src;
+          img.onload = () => {
+            console.log(`Изображение загружено: ${src}`);
+            resolve(null);
+          };
+          img.onerror = () => {
+            console.error(`Ошибка загрузки: ${src}`);
+            resolve(null);
+          };
+        });
+      });
+
+      await Promise.all(promises);
+      setLoadedCount(bgImages.length);
+    };
+
+    loadImages();
+  }, []);
+
+  if (loadedCount < bgImages.length) {
+    return <Loader>Загрузка...</Loader>;
+  }
 
   const handleRegister = async () => {
     try {

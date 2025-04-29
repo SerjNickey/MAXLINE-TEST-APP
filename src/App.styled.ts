@@ -242,3 +242,13 @@ export const BigBannerThirdPart = styled.div`
   top: 50px;
   animation: ${thoHunScale} 1.2s infinite ease-in-out;
 `;
+
+export const Loader = styled.div`
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  font-size: 32px;
+  color: #ffffff;
+`;
